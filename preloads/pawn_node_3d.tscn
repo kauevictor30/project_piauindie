@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bntbjrxk67gr1"]
+
+[ext_resource type="Script" uid="uid://ced7rdru8cmy2" path="res://scripts/pawn.gd" id="1_5qapy"]
+[ext_resource type="Script" uid="uid://cfata47qeycyy" path="res://scripts/move_system.gd" id="1_hoo6q"]
+[ext_resource type="Script" uid="uid://c3hcj1dbcb1nm" path="res://scripts/behavior_system.gd" id="2_xxrpd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hpe4k"]
+
+[node name="PawnNode3D" type="Node3D"]
+script = ExtResource("1_5qapy")
+
+[node name="SkinMeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_hpe4k")
+
+[node name="MoveSystemNode" type="Node" parent="." node_paths=PackedStringArray("object")]
+script = ExtResource("1_hoo6q")
+object = NodePath("..")
+
+[node name="BehaviorSystemNode" type="Node" parent="."]
+script = ExtResource("2_xxrpd")
