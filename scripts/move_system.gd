@@ -1,6 +1,9 @@
+class_name MoveSystem
 extends Node
 
 @export var object: Node3D
+
+signal finished
 
 var _tweening: bool = false
 #var _position: Vector3 = Vector3.ZERO
@@ -18,6 +21,7 @@ func move_to(to: Vector3, duration: float = 1.0) -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(object, "position", to, duration)
 	_tweening = false
+	finished.emit()
 
 
 #func _process(delta: float) -> void:
